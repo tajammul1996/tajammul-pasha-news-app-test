@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const NewsDetailScreenStyles = StyleSheet.create({
   container: {
     flex: 1
   },
   titleContainer: {
-    width: "60%",
+    width: "80%",
     padding: 15
   },
   titleStyle: {
@@ -22,6 +22,10 @@ const NewsDetailScreenStyles = StyleSheet.create({
     padding: 15,
     fontSize: 16,
     color: "#000000"
+  },
+  bannerImage: {
+    width: Dimensions.get("window").width,
+    height: 200
   }
 });
 

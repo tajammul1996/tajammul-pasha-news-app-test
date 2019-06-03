@@ -1,27 +1,34 @@
 import React from "react";
-import { View, Text, Image, Dimensions } from "react-native";
+import { View, Text, Image } from "react-native";
 
 import styles from "./NewsDetailScreenStyles";
 
-const NewsDetailScreen = props => {
+const NewsDetailScreen = ({ navigation }) => {
+  console.log(navigation.state.params);
+  const {
+    author,
+    urlToImage,
+    title,
+    publishedAt,
+    description
+  } = navigation.state.params;
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleStyle}>The Ideal Design Workflow</Text>
-        <Text style={styles.authorText}>The Ideal Design Workflow</Text>
+        <Text style={styles.titleStyle}>{title}</Text>
+        <Text style={styles.authorText}>
+          {author} {publishedAt}
+        </Text>
       </View>
       <View>
         <Image
-          style={{ width: Dimensions.get("window").width, height: 200 }}
+          style={styles.bannerImage}
           source={{
-            uri:
-              "https://facebook.github.io/react-native/docs/assets/favicon.png"
+            uri: urlToImage
           }}
           resizeMode={"stretch"}
         />
-        <Text style={styles.decsText}>
-          As designers we are constantly experimenting with the tools
-        </Text>
+        <Text style={styles.decsText}>{description}</Text>
       </View>
     </View>
   );
