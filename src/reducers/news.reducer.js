@@ -1,4 +1,4 @@
-import * as newsActions from "../actions/news.actions";
+import * as newsActions from "../actions/news.action";
 
 const initialState = {
   loading: false,

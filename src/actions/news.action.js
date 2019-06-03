@@ -1,4 +1,4 @@
-import { SUCCESS, FAILURE, REQUESTING } from "../../utils/constants";
+import { SUCCESS, FAILURE, REQUESTING } from "../utils/constants";
 
 export const NEWS_FEED_REQUESTING = "NEWS_FEED_REQUESTING";
 export const NEWS_FEED_SUCCESS = "NEWS_FEED_SUCCESS";
@@ -24,14 +24,11 @@ export const newsFeedFailure = error => ({
 });
 
 export const getNewsFeed = () => {
-  console.log("Hitting getnews feed");
   return async dispatch => {
     dispatch(newsFeedRequest());
-
     try {
       const data = await fetch(API_URL);
       const result = await data.json();
-      console.log("Result", result);
       dispatch(newsFeedSuccess(result.articles));
       return;
     } catch (error) {
