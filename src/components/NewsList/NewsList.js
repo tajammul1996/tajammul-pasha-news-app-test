@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, FlatList, ActivityIndicator, Text } from "react-native";
+import {
+  View,
+  FlatList,
+  ActivityIndicator,
+  Text,
+  StatusBar
+} from "react-native";
 
 import NewsListCard from "../NewsListCard/NewsListCard";
 
@@ -7,10 +13,21 @@ class NewsList extends Component {
   componentDidMount() {
     this.props.getNewsFeed();
   }
+  static navigationOptions = {
+    title: "Home",
+    headerStyle: {
+      backgroundColor: "#000000"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "300"
+    }
+  };
 
   render() {
     return (
       <View style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content" backgroundColor="#000000" />
         {this.props.loading ? (
           <View
             style={{

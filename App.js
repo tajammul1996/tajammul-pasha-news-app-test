@@ -4,11 +4,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import NewsListContainer from "./src/containers/NewsListContainer";
+import NewsDetailScreen from "./src/components/NewsDetailScreen/NewsDetailScreen";
 
 const NewsStack = createStackNavigator({
   NewsListContainer: {
-    screen: NewsListContainer,
-    title: "Home"
+    screen: NewsListContainer
+  },
+  NewsDetailScreen: {
+    screen: NewsDetailScreen
   }
 });
 
