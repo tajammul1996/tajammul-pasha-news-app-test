@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import NewsListCard from "../NewsListCard/NewsListCard";
+import styles from "./NewsListStyles";
 
 class NewsList extends Component {
   componentDidMount() {
@@ -26,16 +27,10 @@ class NewsList extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor="#000000" />
         {this.props.loading ? (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
+          <View style={styles.activityIndicator}>
             <ActivityIndicator size="large" />
             <Text>Loading news feed...</Text>
           </View>
