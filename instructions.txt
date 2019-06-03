@@ -1,0 +1,6 @@
+Instructions to run the app
+
+1. Clone the repo
+2. cd into the cloned directory
+3. yarn install or npm install
+4. react-native run-android (for android)  || react-native run-ios (for ios)
