@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
 import NewsListContainer from "./src/containers/NewsListContainer";
 
-export default class App extends Component {
+const NewsStack = createStackNavigator({
+  NewsListContainer: {
+    screen: NewsListContainer,
+    title: "Home"
+  }
+});
+
+const AppContainer = createAppContainer(NewsStack);
+
+class App extends Component {
   render() {
-    return <NewsListContainer />;
+    return <AppContainer />;
   }
 }
+
+export default App;

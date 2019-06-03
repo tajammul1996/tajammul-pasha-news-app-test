@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, FlatList, ActivityIndicator } from "react-native";
+import { View, FlatList, ActivityIndicator, Text } from "react-native";
 
 import NewsListCard from "../NewsListCard/NewsListCard";
 
@@ -10,11 +10,18 @@ class NewsList extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         {this.props.loading ? (
-          <ActivityIndicator
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          />
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <ActivityIndicator size="large" />
+            <Text>Loading news feed...</Text>
+          </View>
         ) : (
           <FlatList
             data={this.props.newsFeeds}
