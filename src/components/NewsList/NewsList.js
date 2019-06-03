@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList, ActivityIndicator } from "react-native";
 
 import NewsListCard from "../NewsListCard/NewsListCard";
 
@@ -9,7 +9,22 @@ class NewsList extends Component {
   }
 
   render() {
-    return <NewsListCard />;
+    return (
+      <View>
+        {this.props.loading ? (
+          <ActivityIndicator
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          />
+        ) : (
+          <FlatList
+            data={this.props.newsFeeds}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => <NewsListCard {...item} />}
+            keyExtractor={item => item.publishedAt}
+          />
+        )}
+      </View>
+    );
   }
 }
 

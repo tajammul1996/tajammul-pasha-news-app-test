@@ -3,20 +3,15 @@ import { Text, Image, View, TouchableOpacity } from "react-native";
 
 import styles from "./NewsListCardStyles";
 
-const NewsListCard = props => {
+const NewsListCard = ({ author, title, urlToImage }) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.textContaner}>
-        <Text style={styles.headlineTextStyle}>
-          Headline text headline text headline text
-        </Text>
-        <Text style={styles.authorTextStyle}>Author author author</Text>
+        <Text style={styles.headlineTextStyle}>{title}</Text>
+        <Text style={styles.authorTextStyle}>{author}</Text>
       </View>
       <View>
-        <Image
-          source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-          style={styles.thumbnailStyle}
-        />
+        <Image source={{ uri: urlToImage }} style={styles.thumbnailStyle} />
       </View>
     </TouchableOpacity>
   );
